@@ -1,4 +1,5 @@
 Desktop-Assistente
+
 Este é um projeto inicial de um assistente de desktop desenvolvido em Python.
 
 Para utilizar a versão atual do software, basta executar o arquivo "main.exe" localizado na pasta "main".
