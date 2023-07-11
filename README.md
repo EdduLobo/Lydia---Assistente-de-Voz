@@ -1,4 +1,4 @@
-Desktop-Assistente
+#Desktop-Assistente
 
 Este é um projeto inicial de um assistente de desktop desenvolvido em Python.
 
