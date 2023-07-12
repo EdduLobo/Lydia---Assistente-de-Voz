@@ -46,12 +46,13 @@ Personalização
 Você pode personalizar o Lydia adicionando mais comandos e funcionalidades de acordo com suas necessidades. Para isso, siga as etapas abaixo:
 
 Crie um novo arquivo de comando na pasta comandos com o formato comando_novo.py.
-Implemente a lógica do novo comando no arquivo criado. Você pode se basear nos arquivos existentes comando_abrir_programa.py, comando_google.py e comando_youtube.py.
+Implemente a lógica do novo comando no arquivo criado. 
+Você pode se basear nos arquivos existentes comando_abrir_programa.py, comando_google.py e comando_youtube.py.
 No arquivo main.py, importe a função do novo comando e adicione uma nova condição no loop while True para identificar e executar o novo comando.
 
-Exemplo de novo comando no arquivo main.py
+Exemplo de novo comando no arquivo main.py:
 
-from comandos.comando_novo import executar_comando_novo
+    from comandos.comando_novo import executar_comando_novo
 
 
     ...
