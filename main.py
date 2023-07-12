@@ -1,52 +1,61 @@
-import os
 import speech_recognition as sr
+import keyboard
+import time
 
+import pyttsx3
 
-def ouvir_comando():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Ouvindo...")
-        r.pause_threshold = 1
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)
-    try:
-        print("Processando...")
-        comando = r.recognize_google(audio, language='pt-BR')
-        return comando.lower()
-    except sr.UnknownValueError:
-        print("Desculpe, não consegui entender o comando.")
-        return ""
-    except sr.RequestError:
-        print("Desculpe, ocorreu um erro na comunicação com o serviço de reconhecimento de voz.")
-        return ""
+def reproduzir_resposta(texto):
+    engine = pyttsx3.init()
+    engine.say(texto)
+    engine.runAndWait()
 
+from comandos.comando_google import pesquisar_no_google
+from comandos.comando_youtube import pesquisar_no_youtube
+from comandos.comando_abrir_programa import abrir_programa
 
-def iniciar_assistente():
-    print("Olá! Como posso te ajudar hoje?")
-    while True:
-        comando = ouvir_comando()
-        if "sexta-feira" in comando:
-            print("Comandos liberados.")
-            break
-        else:
-            print("Aguarde para liberar os comandos.")
+def aguardar_pressionar_botao():
+   while True:
+       if keyboard.is_pressed("'"):
+           while keyboard.is_pressed("'"):
+               pass
+           return
+       time.sleep(0.1)
 
-    while True:
-        comando = ouvir_comando()
-        if comando == "abrir":
-            os.system("python comandos/abrir_programa.py")
-        elif comando == "calcular":
-            os.system("python comandos/fazer_calculos.py")
-        elif comando == "pesquisar":
-            os.system("python comandos/fazer_pesquisa.py")
-        elif comando == "reproduzir":
-            os.system("python comandos/reproduzir_musica.py")
-        elif comando == "sair":
-            print("Encerrando o assistente...")
-            break
-        else:
-            print("Comando inválido. Por favor, tente novamente.")
+def ouvir_microfone():
+   aguardar_pressionar_botao()
 
+   r = sr.Recognizer()
+   with sr.Microphone() as source:
+       print("Diga algo...")
+       audio = r.listen(source, phrase_time_limit=5)  # Limite de 5 segundos para cada comando de voz
+   try:
+       print("Analisando o áudio...")
+       texto = r.recognize_google(audio, language='pt-BR')
+       reproduzir_resposta("carregando... " + texto)
+       print("Você disse: " + texto)
+       return texto.lower()
+   except sr.UnknownValueError:
+       reproduzir_resposta("erro...")
+       print("Não entendi o que você disse.")
+       return ''
+   
+reproduzir_resposta("Bem-vindo(a) ao assistente de desktop!")
+print("Bem-vindo(a) ao assistente de desktop!")
 
-if __name__ == "__main__":
-    iniciar_assistente()
+while True:
+   aguardar_pressionar_botao()
+   texto = ouvir_microfone()
+
+   if "pesquisar no google" in texto:
+       pesquisar_no_google(texto)
+   elif "pesquisar no youtube" in texto:
+       pesquisar_no_youtube(texto)
+   elif "abrir" in texto:
+       abrir_programa(texto)
+   elif "sair" in texto:
+       reproduzir_resposta("Encerrando o assistente...")
+       print("Encerrando o assistente...")
+       break
+   else:
+       reproduzir_resposta("Comando não reconhecido.")
+       print("Comando não reconhecido.")

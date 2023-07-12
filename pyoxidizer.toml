@@ -1,9 +1,0 @@
-[python]
-version = "3.9.6"
-install-requirements = [
-    "speechrecognition",
-    "webbrowser"
-]
-
-[packaging]
-executable-name = "sexta-feira"
