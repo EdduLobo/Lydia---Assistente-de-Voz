@@ -1,43 +1,65 @@
-#Assistente de Desktop - Documentação
-Bem-vindo(a) à documentação do Assistente de Desktop!
+Lydia - Assistente de Voz
 
-O Assistente de Desktop é uma aplicação desenvolvida em Python que permite realizar pesquisas no Google, no YouTube e abrir programas do desktop por meio de comandos de voz. É uma ferramenta conveniente e prática para facilitar suas tarefas diárias.
+Lydia é um assistente de voz desenvolvido em Python que permite executar comandos por meio de reconhecimento de voz. Com o Lydia, você pode pesquisar no Google, pesquisar no YouTube e abrir programas no seu computador usando apenas comandos de voz.
 
-#Funcionalidades
-Pesquisa no Google:
-Realize pesquisas no Google com facilidade e rapidez, basta dizer o que você deseja encontrar.
+Pré-requisitos
 
-#Pesquisa no YouTube:
-Explore vídeos interessantes no YouTube com comandos de voz simples.
-Abertura de programas: Abra seus programas favoritos no desktop com apenas um comando de voz.
+Certifique-se de ter o seguinte instalado em seu ambiente de desenvolvimento:
 
-#Requisitos:
-Antes de executar o Assistente de Desktop, certifique-se de atender aos seguintes requisitos:
+Python 3.x
+Bibliotecas: speech_recognition, pyttsx3
 
-#Python 3.x:
-Certifique-se de ter o Python 3.x instalado em seu sistema.
-Bibliotecas Python: Certifique-se de ter as seguintes bibliotecas Python instaladas: speech_recognition, keyboard.
+Instalação
 
-#Instalação:
-Clone o repositório do Assistente de Desktop para o seu ambiente local
+Clone este repositório para o seu ambiente local:
+
+https://github.com/EdduLobo/Desktop-Assistente
+
+Navegue até o diretório do projeto:
+
+cd lydia-assistente
+
+Instale as dependências do projeto:
 
 pip install -r requirements.txt
 
-#Uso:
-Execute o arquivo main.py no terminal para iniciar o assistente
+Utilização
 
-"python main.py"
+Execute o arquivo main.py:
 
-Aguarde o prompt "Diga algo..." e pressione a tecla de aspas para ativar o assistente.
+python main.py
 
-Fale o comando desejado de forma clara e concisa, como "Pesquisar no Google sobre gatos".
+O Lydia irá aguardar por comandos de voz.
 
-O assistente irá processar seu comando e executar a ação correspondente.
+Quando solicitado, fale o comando desejado:
+Para pesquisar no Google: "Lydia pesquisar no Google {sua pesquisa}"
+Para pesquisar no YouTube: "Lydia pesquisar no YouTube {sua pesquisa}"
+Para abrir um programa: "Lydia abrir {nome do programa}"
+Para encerrar o assistente: "sair"
 
-Repita o processo para realizar outras operações ou diga "sair" para encerrar o assistente.
+O Lydia processará o comando de voz e executará a ação correspondente.
 
-#Personalização:
-O Assistente de Desktop pode ser personalizado de acordo com suas necessidades. Você pode adicionar novos comandos, modificar as respostas e ajustar as configurações conforme desejado. Explore o código-fonte para fazer as modificações necessárias.
+Personalização
+Você pode personalizar o Lydia adicionando mais comandos e funcionalidades de acordo com suas necessidades. Para isso, siga as etapas abaixo:
+
+Crie um novo arquivo de comando na pasta comandos com o formato comando_novo.py.
+Implemente a lógica do novo comando no arquivo criado. Você pode se basear nos arquivos existentes comando_abrir_programa.py, comando_google.py e comando_youtube.py.
+No arquivo main.py, importe a função do novo comando e adicione uma nova condição no loop while True para identificar e executar o novo comando.
+
+# Exemplo de novo comando no arquivo main.py
+
+from comandos.comando_novo import executar_comando_novo
+
+# ...
+
+while True:
+texto = ouvir_microfone()
+
+    if "lydia novo comando" in texto:
+        executar_comando_novo()
+    # ...
+
+    Reinicie o Lydia para que as alterações sejam aplicadas.
 
 Uma versão executavel do projeto está disponível na pasta "main".
 

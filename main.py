@@ -1,61 +1,53 @@
+from comandos.comando_google import pesquisar_no_google
+from comandos.comando_abrir_programa import abrir_programa
+from comandos.comando_youtube import pesquisar_no_youtube
 import speech_recognition as sr
-import keyboard
-import time
-
 import pyttsx3
+
 
 def reproduzir_resposta(texto):
     engine = pyttsx3.init()
     engine.say(texto)
     engine.runAndWait()
 
-from comandos.comando_google import pesquisar_no_google
-from comandos.comando_youtube import pesquisar_no_youtube
-from comandos.comando_abrir_programa import abrir_programa
-
-def aguardar_pressionar_botao():
-   while True:
-       if keyboard.is_pressed("'"):
-           while keyboard.is_pressed("'"):
-               pass
-           return
-       time.sleep(0.1)
 
 def ouvir_microfone():
-   aguardar_pressionar_botao()
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Aguardando...")
+        # Limite de 5 segundos para cada comando de voz
+        audio = r.listen(source, phrase_time_limit=5)
+    try:
+        print("Analisando...")
+        texto = r.recognize_google(audio, language='pt-BR')
+        print("Você disse: " + texto)
+        return texto.lower()
+    except sr.UnknownValueError:
+        print("Aguardando...")
+        return ''
 
-   r = sr.Recognizer()
-   with sr.Microphone() as source:
-       print("Diga algo...")
-       audio = r.listen(source, phrase_time_limit=5)  # Limite de 5 segundos para cada comando de voz
-   try:
-       print("Analisando o áudio...")
-       texto = r.recognize_google(audio, language='pt-BR')
-       reproduzir_resposta("carregando... " + texto)
-       print("Você disse: " + texto)
-       return texto.lower()
-   except sr.UnknownValueError:
-       reproduzir_resposta("erro...")
-       print("Não entendi o que você disse.")
-       return ''
-   
-reproduzir_resposta("Bem-vindo(a) ao assistente de desktop!")
-print("Bem-vindo(a) ao assistente de desktop!")
+
+reproduzir_resposta("Bem-vindo de volta, Edu!")
+print("Bem-vindo de volta, Edu!")
 
 while True:
-   aguardar_pressionar_botao()
-   texto = ouvir_microfone()
+    texto = ouvir_microfone()
 
-   if "pesquisar no google" in texto:
-       pesquisar_no_google(texto)
-   elif "pesquisar no youtube" in texto:
-       pesquisar_no_youtube(texto)
-   elif "abrir" in texto:
-       abrir_programa(texto)
-   elif "sair" in texto:
-       reproduzir_resposta("Encerrando o assistente...")
-       print("Encerrando o assistente...")
-       break
-   else:
-       reproduzir_resposta("Comando não reconhecido.")
-       print("Comando não reconhecido.")
+    if "lydia pesquisar no google" in texto or "lídia pesquisar no google" in texto or "lidia pesquisar no google" in texto:
+        pesquisa = texto.replace("lydia pesquisar no google", "").replace(
+            "lídia pesquisar no google", "").replace("lidia pesquisar", "").strip()
+        pesquisar_no_google(pesquisa)
+    elif "lydia pesquisar no youtube" in texto or "lídia pesquisar no youtube" in texto or "lidia pesquisar no youtube" in texto:
+        pesquisa = texto.replace("lydia pesquisar no youtube", "").replace(
+            "lídia pesquisar no youtube", "").replace("lidia pesquisar no youtube", "").strip()
+        pesquisar_no_youtube(pesquisa)
+    elif "lydia abrir" in texto or "lídia abrir" in texto or "lidia abrir" in texto:
+        programa = texto.replace("lydia abrir", "").replace(
+            "lídia abrir", "").replace("lidia abrir", "").strip()
+        abrir_programa(programa)
+    elif "sair" in texto:
+        reproduzir_resposta("Encerrando...")
+        print("Encerrando...")
+        break
+    else:
+        print("Comando não reconhecido.")
