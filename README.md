@@ -42,12 +42,19 @@ O Lydia irá aguardar por comandos de voz.
 Quando solicitado, fale o comando desejado:
 
 Para pesquisar no Google: 
+
 "Lydia pesquisar no Google {sua pesquisa}"
+
 Para pesquisar no YouTube: 
+
 "Lydia pesquisar no YouTube {sua pesquisa}"
+
 Para abrir um programa: 
+
 Lydia abrir {nome do programa}"
+
 Para encerrar o assistente: 
+
 "sair"
 
 O Lydia processará o comando de voz e executará a ação correspondente.
