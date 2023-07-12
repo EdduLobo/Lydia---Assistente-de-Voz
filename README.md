@@ -3,8 +3,11 @@
 Lydia é um assistente de voz desenvolvido em Python que permite executar comandos por meio de reconhecimento de voz. Com o Lydia, você pode pesquisar no Google, pesquisar no YouTube e abrir programas no seu computador usando apenas comandos de voz.
 
 Pré-requisitos
+
 Certifique-se de ter o seguinte instalado em seu ambiente de desenvolvimento:
+
 Python 3.x
+
 Bibliotecas: speech_recognition, pyttsx3
 
 Instalação
@@ -50,14 +53,14 @@ Exemplo de novo comando no arquivo main.py
 
 from comandos.comando_novo import executar_comando_novo
 
-...
 
-while True:
-texto = ouvir_microfone()
-
+    ...
+    
+    while True:
+    texto = ouvir_microfone()
     if "lydia novo comando" in texto:
         executar_comando_novo()
-    # ...
+    ...
 
     Reinicie o Lydia para que as alterações sejam aplicadas.
 
