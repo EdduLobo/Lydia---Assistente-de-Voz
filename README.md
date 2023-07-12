@@ -15,12 +15,13 @@ Abertura de programas: Abra seus programas favoritos no desktop com apenas um co
 
 #Requisitos:
 
-Antes de executar o Assistente de Desktop, certifique-se de atender aos seguintes requisitos:
+Antes de executar o Assistente de Desktop, Certifique-se de ter o Python 3.x instalado em seu sistema.
 
-#Python 3.x:
-
-Certifique-se de ter o Python 3.x instalado em seu sistema.
-Bibliotecas Python: Certifique-se de ter as seguintes bibliotecas Python instaladas: speech_recognition, keyboard.
+Certifique-se de ter as seguintes bibliotecas Python instaladas: 
+speech_recognition, 
+keyboard,
+pyaudio,
+pygame.
 
 #Instalação:
 
