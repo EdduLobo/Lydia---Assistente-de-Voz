@@ -1,28 +1,39 @@
-#Desktop-Assistente
+Assistente de Desktop - Documentação
+Bem-vindo(a) à documentação do Assistente de Desktop!
 
-Este é um projeto inicial de um assistente de desktop desenvolvido em Python.
+O Assistente de Desktop é uma aplicação desenvolvida em Python que permite realizar pesquisas no Google, no YouTube e abrir programas do desktop por meio de comandos de voz. É uma ferramenta conveniente e prática para facilitar suas tarefas diárias.
 
-Para utilizar a versão atual do software, basta executar o arquivo "main.exe" localizado na pasta "main".
+Funcionalidades
+Pesquisa no Google: Realize pesquisas no Google com facilidade e rapidez, basta dizer o que você deseja encontrar.
+Pesquisa no YouTube: Explore vídeos interessantes no YouTube com comandos de voz simples.
+Abertura de programas: Abra seus programas favoritos no desktop com apenas um comando de voz.
+Requisitos
+Antes de executar o Assistente de Desktop, certifique-se de atender aos seguintes requisitos:
 
-O assistente "SextaFeira//" foi projetado para ajudá-lo(a) com tarefas comuns por meio de comandos de voz. 
-Abaixo estão os comandos disponíveis e como utilizá-los:
+Python 3.x: Certifique-se de ter o Python 3.x instalado em seu sistema.
+Bibliotecas Python: Certifique-se de ter as seguintes bibliotecas Python instaladas: speech_recognition, keyboard.
 
-- Abrir: Com o comando "Abrir", você pode solicitar ao assistente que abra um programa no seu computador. 
-  O assistente irá perguntar qual programa você deseja abrir e você pode fornecer o nome do programa. Por exemplo, você pode dizer "Abrir Bloco de Notas" ou "Abrir Calculadora".
+Instalação:
+Clone o repositório do Assistente de Desktop para o seu ambiente local
 
-- Calcular: Utilize o comando "Calcular" para fazer cálculos rapidamente. 
-  O assistente irá pedir que você insira a operação (adição, subtração, multiplicação ou divisão) e, em seguida, solicitará que você forneça os números para realizar o cálculo.
+pip install -r requirements.txt
 
-- Pesquisar: Com o comando "Pesquisar", você pode solicitar ao assistente que faça uma pesquisa no Google para você. 
-  O assistente irá pedir que você diga o termo da pesquisa e, em seguida, abrirá o navegador padrão exibindo os resultados da pesquisa.
+Uso:
+Execute o arquivo main.py no terminal para iniciar o assistente
 
-- Reproduzir: Com o comando "Reproduzir", você pode pedir ao assistente que busque músicas no YouTube. 
-  O assistente irá pedir que você diga o nome da música e, em seguida, abrirá o navegador padrão exibindo os resultados da pesquisa no YouTube.
+"python main.py"
 
-Lembre-se de que o assistente estará sempre ouvindo seus comandos de voz após dizer "SextaFeira//". Para encerrar o assistente, basta dizer "Sair".
+Aguarde o prompt "Diga algo..." e pressione a tecla de aspas para ativar o assistente.
 
-Certifique-se de falar de forma clara e pausada para que o assistente possa entender corretamente seus comandos.
+Fale o comando desejado de forma clara e concisa, como "Pesquisar no Google sobre gatos".
 
-Este programa ainda está em fase inicial de desenvolvimento e seu objetivo é me auxiliar a aprender Python durante seu desenvolvimento. Como sou novo na linguagem, o software pode apresentar alguns bugs e problemas de tempo de resposta.
+O assistente irá processar seu comando e executar a ação correspondente.
 
-Aproveite a experiência e fique à vontade para fornecer feedbacks e sugestões para aprimorarmos o assistente "SextaFeira//".
+Repita o processo para realizar outras operações ou diga "sair" para encerrar o assistente.
+
+Personalização
+O Assistente de Desktop pode ser personalizado de acordo com suas necessidades. Você pode adicionar novos comandos, modificar as respostas e ajustar as configurações conforme desejado. Explore o código-fonte para fazer as modificações necessárias.
+
+Uma versão executavel do projeto está disponível na pasta "main".
+
+Este projeto está sendo desenvolvido com o objetivo de aprender os fundamentos básicos de Python e aprimorar meu conhecimento nessa linguagem. Estou empolgado em explorar as possibilidades do Python e aplicá-las na construção deste assistente de desktop. Espero que vocês também se interessem e apreciem o projeto!
