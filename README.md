@@ -8,15 +8,14 @@ O Assistente de Desktop é uma aplicação desenvolvida em Python que permite re
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Abrir arquivos:
-
 Abra arquivos do seu sistema. (alguns arquivos precisam ter seus caminhos definidos em "comandos_abrir_programa.py")
 
-#Pesquisa no Google:
 
+#Pesquisa no Google:
 Realize pesquisas no Google com facilidade e rapidez, basta dizer o que você deseja encontrar.
 
-#Pesquisa no YouTube:
 
+#Pesquisa no YouTube:
 Explore vídeos interessantes no YouTube com comandos de voz simples.
 Abertura de programas: Abra seus programas favoritos no desktop com apenas um comando de voz.
 
