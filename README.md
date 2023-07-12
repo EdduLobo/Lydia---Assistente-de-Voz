@@ -8,22 +8,29 @@ Python 3.x
 Bibliotecas: speech_recognition, pyttsx3
 
 Instalação
+
 Clone este repositório para o seu ambiente local:
+
 https://github.com/EdduLobo/Desktop-Assistente
 
 Navegue até o diretório do projeto:
+
 cd lydia-assistente
 
 Instale as dependências do projeto:
+
 pip install -r requirements.txt
 
 Utilização
+
 Execute o arquivo main.py:
+
 python main.py
 
 O Lydia irá aguardar por comandos de voz.
 
 Quando solicitado, fale o comando desejado:
+
 Para pesquisar no Google: "Lydia pesquisar no Google {sua pesquisa}"
 Para pesquisar no YouTube: "Lydia pesquisar no YouTube {sua pesquisa}"
 Para abrir um programa: "Lydia abrir {nome do programa}"
@@ -32,6 +39,7 @@ Para encerrar o assistente: "sair"
 O Lydia processará o comando de voz e executará a ação correspondente.
 
 Personalização
+
 Você pode personalizar o Lydia adicionando mais comandos e funcionalidades de acordo com suas necessidades. Para isso, siga as etapas abaixo:
 
 Crie um novo arquivo de comando na pasta comandos com o formato comando_novo.py.
@@ -42,7 +50,7 @@ Exemplo de novo comando no arquivo main.py
 
 from comandos.comando_novo import executar_comando_novo
 
-# ...
+...
 
 while True:
 texto = ouvir_microfone()
